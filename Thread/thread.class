@@ -1,0 +1,37 @@
+public class MyThread extends Thread {
+
+	private int n;
+	private String threadname;
+	
+	public String getThreadname() {
+		return threadname;
+	}
+
+	public void setThreadname(String threadname) {
+		this.threadname = threadname;
+	}
+
+	public void run() {
+		// TODO Auto-generated method stub
+		//定义了线程执行的功能
+		//获取当前线程的名称
+		String name = this.getName();
+		System.out.println("当前线程的名称"+name);
+		this.setThreadname("新线程");
+		
+		for (int i = 1; i < 11; i++) {
+			System.out.println("计数： "+i);
+			//让线程睡眠1sec
+			try {
+				this.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		super.run();
+	}
+	
+
+}
